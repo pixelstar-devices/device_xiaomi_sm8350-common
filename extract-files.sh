@@ -94,7 +94,8 @@ function blob_fixup() {
             "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
             ;;
         vendor/lib64/libwvhidl.so)
-            "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v33.so" "${2}"
+            "${PATCHELF}" --replace-needed "libcrypto.so" "libcrypto-v33.so" "libcrypto-v34.so" "${2}"
+            "${PATCHELF}" --set-soname "libcrypto-v34.so" "${2}"
             ;;
         *)
             return 1
